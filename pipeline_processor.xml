@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- //2/17/26 LAB5 UPDATE: This file was generated for lab5 as a build config file for generating the bitfile based off ids.xml -->
+<nf:module xmlns:nf="http://www.NetFPGA.org/NF2_register_system" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.NetFPGA.org/NF2_register_system NF2_register_system.xsd ">
+	<nf:name>pipeline_processor</nf:name>
+	<nf:prefix>pipeline_processor</nf:prefix>
+	<nf:location>udp</nf:location>
+	<nf:description>Registers for Pipeline</nf:description>
+	<nf:blocksize>64</nf:blocksize>
+	<nf:registers>
+		<nf:register>
+            <nf:name>reg_dmem_data_lo</nf:name>
+            <nf:description>Lower 32 bits of data read from data memory</nf:description>
+            <nf:type>generic_software32</nf:type>
+        </nf:register>
+        <nf:register>
+            <nf:name>reg_dmem_data_hi</nf:name>
+            <nf:description>Upper 32 bits of data read from data memory</nf:description>
+            <nf:type>generic_software32</nf:type>
+        </nf:register>
+        <nf:register>
+            <nf:name>reg_dmem_addr</nf:name>
+            <nf:description>Address to read/write in data memory (also trace read index [5:0] in trace view mode)</nf:description>
+            <nf:type>generic_software32</nf:type>
+        </nf:register>
+        <nf:register>
+            <nf:name>reg_imem_addr</nf:name>
+            <nf:description>Address to read in instruction memory</nf:description>
+            <nf:type>generic_software32</nf:type>
+        </nf:register>
+        <nf:register>
+            <nf:name>reg_pipeline_c</nf:name>
+            <nf:description>Control bits: [0] imem write enable, [1] trace enable, [2] trace clear, [3] trace freeze, [4] trace view mode</nf:description>
+            <nf:type>generic_software32</nf:type>
+        </nf:register>
+        <nf:register>
+            <nf:name>reg_proc_reset</nf:name>
+            <nf:description>Reset register for pipeline processor</nf:description>
+            <nf:type>generic_software32</nf:type>
+        </nf:register>
+        <nf:register>
+            <nf:name>reg_imem_out</nf:name>
+            <nf:description>Data read from instruction memory</nf:description>
+            <nf:type>generic_hardware32</nf:type>
+        </nf:register>
+		<nf:register>
+            <nf:name>reg_inst_addr_lo</nf:name>
+            <nf:description>Lower 32 bits of current instruction address</nf:description>
+            <nf:type>generic_hardware32</nf:type>
+        </nf:register>
+        <nf:register>
+            <nf:name>reg_inst_addr_hi</nf:name>
+            <nf:description>Upper 32 bits of current instruction address</nf:description>
+            <nf:type>generic_hardware32</nf:type>
+        </nf:register>
+        <nf:register>
+            <nf:name>reg_wb_res_lo</nf:name>
+            <nf:description>Lower 32 bits of latest writeback result</nf:description>
+            <nf:type>generic_hardware32</nf:type>
+        </nf:register>
+        <nf:register>
+            <nf:name>reg_wb_res_hi</nf:name>
+            <nf:description>Upper 32 bits of latest writeback result</nf:description>
+            <nf:type>generic_hardware32</nf:type>
+        </nf:register>
+        <nf:register>
+            <nf:name>reg_pipeline_status</nf:name>
+            <nf:description>Status bits: trace flags/wr_ptr and core control state (see RTL packing)</nf:description>
+            <nf:type>generic_hardware32</nf:type>
+        </nf:register>
+	</nf:registers>
+</nf:module>
+
